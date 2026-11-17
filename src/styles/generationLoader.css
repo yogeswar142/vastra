@@ -1,0 +1,218 @@
+.loader-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(25, 16, 25, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-4);
+  color: var(--color-ivory);
+  overflow-y: auto;
+}
+
+.loader-ambient-glow {
+  position: absolute;
+  width: min(440px, 90vw);
+  height: min(440px, 90vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(181, 138, 69, 0.16) 0%,
+    rgba(8, 125, 120, 0.1) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: breatheGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes breatheGlow {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 0.95; }
+}
+
+.loader-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-aubergine);
+  border: 1px solid var(--color-antique-gold-border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(181, 138, 69, 0.15);
+  border-radius: var(--radius-sm);
+  padding: clamp(16px, 4.5vw, 36px) clamp(14px, 4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  margin: auto;
+}
+
+/* Zari Circle Linework */
+.zari-circle-container {
+  position: relative;
+  width: clamp(120px, 32vw, 160px);
+  height: clamp(120px, 32vw, 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(12px, 3vw, 24px);
+}
+
+.zari-svg-outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.zari-svg-inner {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+}
+
+.zari-center-emblem {
+  position: relative;
+  width: clamp(40px, 11vw, 54px);
+  height: clamp(40px, 11vw, 54px);
+  border-radius: 50%;
+  background-color: rgba(181, 138, 69, 0.12);
+  border: 1px solid var(--color-antique-gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px rgba(181, 138, 69, 0.2);
+}
+
+/* Headings */
+.loader-headings {
+  margin-bottom: clamp(10px, 2.5vw, 20px);
+}
+
+.loader-eyebrow {
+  color: var(--color-antique-gold);
+  margin-bottom: 2px;
+  font-size: 0.65rem;
+}
+
+.loader-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 500;
+  color: var(--color-ivory);
+  letter-spacing: 0.02em;
+  margin-bottom: 2px;
+}
+
+.loader-subtitle {
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: var(--color-silk-beige);
+  max-width: 380px;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+/* Progress Bar */
+.progress-track {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(231, 216, 189, 0.15);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: clamp(10px, 2.5vw, 20px);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-antique-gold) 0%,
+    var(--color-antique-gold-light) 50%,
+    var(--color-peacock-teal) 100%
+  );
+  box-shadow: 0 0 8px rgba(181, 138, 69, 0.5);
+  transition: width 120ms linear;
+}
+
+/* Progress Stages */
+.stages-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 1.2vw, 8px);
+  margin-bottom: clamp(10px, 2.5vw, 20px);
+}
+
+.stage-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.35rem var(--space-2);
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-normal);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.stage-item.is-completed {
+  color: var(--color-silk-beige);
+}
+
+.stage-item.is-current {
+  background-color: rgba(181, 138, 69, 0.08);
+  border-left: 2px solid var(--color-antique-gold);
+  color: #FFFFFF;
+}
+
+.stage-item.is-pending {
+  opacity: 0.38;
+  color: var(--color-charcoal-light);
+}
+
+.stage-marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--color-antique-gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.stage-item.is-completed .stage-marker {
+  background-color: var(--color-peacock-teal);
+  border-color: var(--color-peacock-teal);
+  color: #FFFFFF;
+}
+
+.stage-item.is-current .stage-marker {
+  background-color: var(--color-antique-gold);
+  border-color: var(--color-antique-gold);
+  color: var(--color-aubergine-dark);
+}
+
+.stage-text {
+  font-size: clamp(0.72rem, 2vw, 0.85rem);
+  letter-spacing: 0.02em;
+  flex: 1;
+  text-align: left;
+}
+
+.stage-pulse-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-antique-gold-light);
+}
+
+.loader-footer-note {
+  font-size: 0.62rem;
+  color: var(--color-charcoal-light);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
