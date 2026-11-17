@@ -362,46 +362,86 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
+  gap: 8px;
+  padding: 6px 10px;
   background-color: rgba(36, 24, 36, 0.04);
   border: 1px dashed var(--color-antique-gold-border);
   border-radius: var(--radius-xs);
   margin-bottom: 20px;
-  min-height: 44px;
+  min-height: 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hint-label {
-  font-size: 0.72rem;
+  font-size: clamp(0.66rem, 1.8vw, 0.72rem);
   color: var(--color-charcoal-muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 500;
+  letter-spacing: 0.06em;
+  font-weight: 600;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .hint-code-btn {
-  font-family: monospace;
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: 0.12em;
+  font-size: clamp(0.72rem, 2vw, 0.78rem);
+  letter-spacing: 0.02em;
   color: var(--color-peacock-teal-dark);
   background: rgba(8, 125, 120, 0.12);
-  padding: 0.3rem 0.65rem;
+  padding: 0.28rem clamp(6px, 1.5vw, 9px);
   border-radius: var(--radius-xs);
-  border: 1px solid rgba(8, 125, 120, 0.25);
+  border: 1px solid rgba(8, 125, 120, 0.28);
   cursor: pointer;
   transition: all var(--transition-fast);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  min-height: 32px;
+  gap: 4px;
+  min-height: 30px;
+}
+
+.hint-code-btn strong {
+  font-family: monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: inherit;
+}
+
+.hint-code-btn .btn-action-text {
+  font-weight: 500;
+  opacity: 0.9;
+  font-size: 0.72rem;
 }
 
 .hint-code-btn:active,
 .hint-code-btn:hover {
   background: var(--color-peacock-teal);
   color: #FFFFFF;
+}
+
+.hint-code-btn:active strong,
+.hint-code-btn:hover strong {
+  color: #FFFFFF;
+}
+
+@media (max-width: 335px) {
+  .demo-pin-hint {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 8px 10px;
+    text-align: center;
+  }
+
+  .hint-label {
+    text-align: center;
+  }
+
+  .hint-code-btn {
+    justify-content: center;
+  }
 }
 
 /* ==========================================================================

@@ -174,14 +174,15 @@ export const Login: React.FC = () => {
 
             {/* Compact single-line Demo PIN Information */}
             <div className="demo-pin-hint">
-              <span className="hint-label">DEMO STAFF PIN</span>
+              <span className="hint-label">DEMO PIN</span>
               <button
                 type="button"
                 className="hint-code-btn"
                 onClick={handleFillDemoPin}
                 title="Click to auto-fill demo PIN"
               >
-                482916 (Click to Fill)
+                <strong>482916</strong>
+                <span className="btn-action-text">(Click to Fill)</span>
               </button>
             </div>
 
